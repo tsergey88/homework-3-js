@@ -1,16 +1,15 @@
 // 1) Write a function splitAndMerge
 
 function splitAndMerge(str, sp) {
-    let words = str.split(' '); // divide the sentence into words
-    let chars = [];
-    // divide words into char
-    for (let i = 0; i < words.length; i++) {
-        let temp = words[i].split('');
-        chars = chars.concat(temp);
-    }
-    // merge char with specified separator
-    let newstr = chars.join(sp);
-    return newstr;
+    const words = str.split(' '); // divide the sentence into words
+  
+    words.forEach(function (val,key) {
+        let char = val.split('');
+        words[key] = char.join(sp);
+    });
+  
+    let newStr = words.join(' ');
+    return newStr;
 }
 
 splitAndMerge("My name is Gates, Bill Gates ))", " ");
